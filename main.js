@@ -20,3 +20,15 @@ function createPassword() {
   }
   passwordBox.value = password;
 }
+
+async function copyPassword() {
+  try {
+    //mengambil teks langsung dari value input
+    await navigator.clipboard.writeText(passwordBox.value);
+
+    //opsional: beri tahu user kalau berhasil melakukan copy (misal pakai alert biasa)
+    alert("Password copied to clipboard!");
+  } catch (err) {
+    console.error("Gagal menyalin: ", err);
+  }
+}
