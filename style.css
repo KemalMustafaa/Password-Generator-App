@@ -40,7 +40,7 @@ body {
   border-radius: 5px;
 }
 
-.display img {
+img {
   width: 30px;
   cursor: pointer;
 }

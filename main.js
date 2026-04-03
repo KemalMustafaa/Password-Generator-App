@@ -1,4 +1,6 @@
 const passwordBox = document.getElementById("password");
+const copy = document.getElementById("copy-image");
+const generate = document.getElementById("generate-btn");
 const length = 12;
 
 const upperCase = "QWERTYUIOPASDFGHJKLZXCVBNM";
@@ -8,7 +10,7 @@ const symbol = "!@#$%^&*())_+<>?/[]{}";
 
 const allChars = upperCase + lowerCase + number + symbol;
 
-function createPassword() {
+generate.addEventListener("click", function () {
   let password = "";
   password += upperCase[Math.floor(Math.random() * upperCase.length)];
   password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
@@ -19,9 +21,9 @@ function createPassword() {
     password += allChars[Math.floor(Math.random() * allChars.length)];
   }
   passwordBox.value = password;
-}
+});
 
-async function copyPassword() {
+copy.addEventListener("click", async function () {
   try {
     //mengambil teks langsung dari value input
     await navigator.clipboard.writeText(passwordBox.value);
@@ -31,4 +33,4 @@ async function copyPassword() {
   } catch (err) {
     console.error("Gagal menyalin: ", err);
   }
-}
+});
